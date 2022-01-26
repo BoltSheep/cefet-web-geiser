@@ -1,0 +1,30 @@
+{
+  "name": "cefet-web-geiser",
+  "version": "1.0.0",
+  "description": "Atividade Geiser Programação web",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoltSheep/cefet-web-geiser.git"
+  },
+  "author": "Thiago Danilo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoltSheep/cefet-web-geiser/issues"
+  },
+  "dependencies": {
+    "express": "latest",
+    "hbs": "^4.2.0"
+  },
+  "homepage": "https://github.com/BoltSheep/cefet-web-geiser#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
