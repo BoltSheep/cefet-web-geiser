@@ -39,7 +39,6 @@ app.set('views', 'server/views')
 
 app.get('/', function (req, res) {
     const data = getFile('server/data/jogadores.json')
-    console.log('miojo + arroz = ', data)
     res.render('index', data)
 })
 
@@ -54,12 +53,12 @@ app.get('/jogador/:id/', function(req, res){
     const games = getFile('server/data/jogosPorJogador.json')[req.params.id]
 
     const player = players.players.find((j) => req.params.id === j.steamid)
-    
-    console.log(player)
 
     games.not_played_count = games.games.filter((g) => !g.playtime_forever).length || 0
 
     games.played_the_most = games.games.reduce((acc, r) => acc.playtime_forever > r.playtime_forever ? acc : r)
+
+    games.top_five_games = games.games.sort((a, b) => a.playtime_forever > b.playtime_forever ? -1 : 1).slice(0,5)
 
     res.render('jogador', {player, games})
 
@@ -74,8 +73,6 @@ app.get('/jogador/:id/', function(req, res){
 
 app.use(express.static("./client"))
 
-app.listen(PORT, () => {
-    console.log(`Example app listening at http://localhost:${PORT}`)
-  })
+app.listen(PORT)
 // abrir servidor na porta 3000 (constante PORT)
 // dica: 1-3 linhas de código

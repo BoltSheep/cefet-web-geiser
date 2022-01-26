@@ -53,12 +53,12 @@
         <div class="row-fluid">
           <div class="game-detailed-card media">
             <div class="media-left">
-              <img src="http://media.steampowered.com/steamcommunity/public/images/apps/200510/{{games.played_the_most.img_logo_url}}.jpg" class="game-logo">
+              <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{games.played_the_most.appid}}/{{games.played_the_most.img_logo_url}}.jpg" class="game-logo">
             </div>
             <div class="media-body">
               <h4 class="media-heading">{{games.played_the_most.name}}</h4>
               <dl class="dl-horizontal">
-                <dt>Tempo de jogo:</dt><dd>{{games.played_the_most.playtime_forever}}</dd>
+                <dt>Tempo de jogo:</dt><dd>{{games.played_the_most.playtime_forever}}h</dd>
                 <dt>Estatísticas completas:</dt><dd>http://steamcommunity.com/profiles/{{player.steamid}}/stats/{{games.played_the_most.appid}}</dd>
               </dl>
             </div>
@@ -76,18 +76,19 @@
         <div class="row-fluid">
           <ul class="col-md-12 games-card-list media-list">
             <!-- Primeiro card de jogo -->
+           {{#each games.top_five_games}}
             <li class="media game-card">
               <div class="media-left media-middle">
-                <img src="http://media.steampowered.com/steamcommunity/public/images/apps/105600/e3f375e78ada9d2ec7ffa521fe1b0052d1d2bbb5.jpg">
+                <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{this.appid}}/{{this.img_logo_url}}.jpg">
               </div>
               <div class="media-body media-middle">
-                <h4>Terraria</h4>
+                <h4>{{this.name}}</h4>
               </div>
               <div class="media-right media-middle">
-                <span class="badge">40h</span>
+                <span class="badge">{{this.playtime_forever}}h</span>
               </div>
             </li>
-            <!-- Próximo jogo aqui -->
+            {{/each}}
           </ul>
         </div>
       </div>
